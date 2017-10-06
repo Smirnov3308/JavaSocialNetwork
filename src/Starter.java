@@ -45,6 +45,11 @@ public class Starter {
                     System.out.println("---------------------");
                     System.out.print("Enter the command number: ");
                     i = scanner.nextInt();
+                    switch (i) {
+                        case 1: invoker.setCommand(loginCommand); invoker.run(); break;
+                        case 2: invoker.setCommand(createNewUserCommand); invoker.run(); break;
+                        default: throw new IllegalArgumentException("");
+                    }
                 } else {
                     System.out.println("1) Sign in");
                     System.out.println("2) Create a New Account");

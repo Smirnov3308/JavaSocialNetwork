@@ -1,11 +1,19 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private int id;
     private String login;
     private String password;
     private String firstName;
     private String lastName;
+
+    private final List<User> friendList = new ArrayList<>();
+    private final List<Group> groupList = new ArrayList<>();
+    private final List<Post> postList = new ArrayList<>();
+
 
     public User(int id, String login, String password, String firstName, String lastName) {
         this.id = id;

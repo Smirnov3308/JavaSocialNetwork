@@ -1,4 +1,9 @@
 package model;
 
-public class Message {
+public abstract class Message {
+    protected String message;
+
+    public String getMessage() {
+        return message;
+    }
 }
