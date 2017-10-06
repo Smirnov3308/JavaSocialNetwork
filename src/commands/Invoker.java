@@ -8,6 +8,7 @@ public class Invoker {
     }
 
     public void run() {
+        System.out.println("");
         command.execute();
     }
 }
