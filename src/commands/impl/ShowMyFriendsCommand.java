@@ -7,9 +7,9 @@ import model.User;
 
 import java.util.Scanner;
 
-public class ShowMyPageCommand implements Command{
+public class ShowMyFriendsCommand implements Command {
     private final Receiver receiver;
-    public ShowMyPageCommand(Receiver receiver) {
+    public ShowMyFriendsCommand(Receiver receiver) {
         this.receiver = receiver;
     }
 
@@ -19,16 +19,12 @@ public class ShowMyPageCommand implements Command{
         Scanner scanner = new Scanner(System.in);
         User user = network.findUser(network.getSignInId());
         System.out.println("---------------------");
-        System.out.println(user.getFirstName() + " " + user.getLastName());
+        System.out.println("Friend List");
         System.out.println("---------------------");
-        System.out.println("1) Posts");
-        System.out.println("2) Messages");
-        System.out.println("3) Friends");
-        System.out.println("4) Groups");
-        System.out.println("5) Find user");
-        System.out.println("6) Setting");
+        user.showFriendList();
         System.out.println("---------------------");
-        System.out.print("Enter the command number: ");
+        System.out.print("Enter the friend number: ");
         int i = scanner.nextInt();
+        // выбор друга
     }
 }

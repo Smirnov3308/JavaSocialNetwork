@@ -15,7 +15,7 @@ public class Starter {
         Command editUserCommand = new EditUserCommand(receiver);
         Command removeUserCommand = new RemoveUserCommand(receiver);
         Command loginCommand = new LoginCommand(receiver);
-        Command showMyPageCommand = new ShowMyPageCommand(receiver);
+        Command showMyFriendsCommand = new ShowMyFriendsCommand(receiver);
         Invoker invoker = new Invoker();
 
         //// Добавление пользователей
@@ -25,6 +25,11 @@ public class Starter {
         network.addUser(new User(3, "ASoboleva", "3","Anna","Soboleva"));
         network.addUser(new User(4, "MPolyakov", "4","Mihail","Polyakov"));
         network.addUser(new User(5, "LEfremova", "5","Lina","Efremova"));
+
+        network.findUser(1).addFriend(network.findUser(2));
+        network.findUser(1).addFriend(network.findUser(3));
+        network.findUser(1).addFriend(network.findUser(4));
+
         ////
 
         int i;
@@ -46,7 +51,7 @@ public class Starter {
                     System.out.print("Enter the command number: ");
                     i = scanner.nextInt();
                     switch (i) {
-                        case 1: invoker.setCommand(loginCommand); invoker.run(); break;
+                        case 3: invoker.setCommand(showMyFriendsCommand); invoker.run(); break;
                         case 2: invoker.setCommand(createNewUserCommand); invoker.run(); break;
                         default: throw new IllegalArgumentException("");
                     }

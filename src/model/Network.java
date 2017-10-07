@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Network {
     private final List<User> userList = new ArrayList<>();
-    private int signInId = 0;
+    private int signInId = 1;
 
     public void addUser(User user) {
         userList.add(user);

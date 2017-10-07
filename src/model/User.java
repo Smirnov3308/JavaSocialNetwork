@@ -58,4 +58,21 @@ public class User {
     public void setLogin(String login) {
         this.login = login;
     }
+
+    public int getNumberOfFriends() {
+        return friendList.size();
+    }
+
+    public void showFriendList() {
+        int i = 1;
+        for (User friend : friendList) {
+            System.out.println(i + ") " + friend.getFirstName() + " " + friend.getLastName());
+            i++;
+        }
+        if (friendList.size() == 0) System.out.println("You have no friends");
+    }
+
+    public void addFriend(User user) {
+        friendList.add(user);
+    }
 }
