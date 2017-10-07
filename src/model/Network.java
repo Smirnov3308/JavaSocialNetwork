@@ -50,4 +50,5 @@ public class Network {
     public int getSignInId() {
         return signInId;
     }
+    public void logOut() { signInId = 0; }
 }

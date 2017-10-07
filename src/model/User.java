@@ -64,15 +64,24 @@ public class User {
     }
 
     public void showFriendList() {
-        int i = 1;
         for (User friend : friendList) {
-            System.out.println(i + ") " + friend.getFirstName() + " " + friend.getLastName());
-            i++;
+            System.out.println(friend.getId() + ") " + friend.getFirstName() + " " + friend.getLastName());
         }
         if (friendList.size() == 0) System.out.println("You have no friends");
     }
 
     public void addFriend(User user) {
         friendList.add(user);
+    }
+
+    public void showPostsList() {
+        for (Post post : postList) {
+            System.out.println(" - " + post.getMessage());
+        }
+        if (friendList.size() == 0) System.out.println("You have no posts");
+    }
+
+    public void addPost(Post post) {
+        postList.add(post);
     }
 }

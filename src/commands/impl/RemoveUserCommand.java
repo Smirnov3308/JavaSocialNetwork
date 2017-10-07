@@ -3,13 +3,11 @@ package commands.impl;
 import commands.Command;
 import commands.Receiver;
 import model.Network;
-import model.User;
 
 import java.util.Scanner;
 
 public class RemoveUserCommand implements Command {
     private final Receiver receiver;
-
     public RemoveUserCommand(Receiver receiver) {
         this.receiver = receiver;
     }

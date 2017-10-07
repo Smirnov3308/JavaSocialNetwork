@@ -3,6 +3,7 @@ import commands.Invoker;
 import commands.Receiver;
 import commands.impl.*;
 import model.Network;
+import model.Post;
 import model.User;
 
 import java.util.Scanner;
@@ -15,10 +16,12 @@ public class Starter {
         Command editUserCommand = new EditUserCommand(receiver);
         Command removeUserCommand = new RemoveUserCommand(receiver);
         Command loginCommand = new LoginCommand(receiver);
+        Command logOutCommand = new LogOutCommand(receiver);
         Command showMyFriendsCommand = new ShowMyFriendsCommand(receiver);
+        Command myPostsCommand = new MyPostsCommand(receiver);
         Invoker invoker = new Invoker();
 
-        //// Добавление пользователей
+        //// Начальные данные
         Network network = receiver.getNetwork();
         network.addUser(new User(1, "VSmirnov", "1","Vadim","Smirnov"));
         network.addUser(new User(2, "IBorovkov", "2","Ivan","Borovkov"));
@@ -30,6 +33,8 @@ public class Starter {
         network.findUser(1).addFriend(network.findUser(3));
         network.findUser(1).addFriend(network.findUser(4));
 
+        network.findUser(1).addPost(new Post("My first post"));
+        network.findUser(1).addPost(new Post("My second post"));
         ////
 
         int i;
@@ -46,13 +51,14 @@ public class Starter {
                     System.out.println("3) Friends");
                     System.out.println("4) Groups");
                     System.out.println("5) Find user");
-                    System.out.println("6) Setting");
+                    System.out.println("6) Log out");
                     System.out.println("---------------------");
                     System.out.print("Enter the command number: ");
                     i = scanner.nextInt();
                     switch (i) {
+                        case 1: invoker.setCommand(myPostsCommand); invoker.run(); break;
                         case 3: invoker.setCommand(showMyFriendsCommand); invoker.run(); break;
-                        case 2: invoker.setCommand(createNewUserCommand); invoker.run(); break;
+                        case 6: invoker.setCommand(logOutCommand); invoker.run(); break;
                         default: throw new IllegalArgumentException("");
                     }
                 } else {
