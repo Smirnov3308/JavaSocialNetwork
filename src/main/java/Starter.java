@@ -40,6 +40,10 @@ public class Starter {
         network.findUser(1).addPost(new Post("My second post"));
         network.findUser(2).addPost(new Post("My first post"));
         network.findUser(2).addPost(new Post("My second post"));
+
+        network.addPM(network.findUser(2), network.findUser(1), "Hello 1");
+        network.addPM(network.findUser(2), network.findUser(1), "Hello 2");
+        network.addPM(network.findUser(2), network.findUser(1), "Hello 3");
         ////
 
         int i;
@@ -58,7 +62,7 @@ public class Starter {
                 } else {
                     User user = network.findUser(network.getSignInId());
                     user.showUserName();
-                    System.out.println(" 1) Posts \n 2) Messages \n 3) Friends \n 4) Groups \n " +
+                    System.out.println(" 1) Posts \n 2) Messages \n 3) Friends \n 4) Groups - \n " +
                             "5) Find user \n 6) Log out \n---------------------\nEnter the command number: ");
                     i = scanner.nextInt();
 

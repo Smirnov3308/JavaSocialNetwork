@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Network {
     private final List<User> userList = new ArrayList<>();
+    private final List<PrivateMessage> messageList = new ArrayList<>();
     private int signInId = 1;
 
     public void addUser(User user) {
@@ -59,4 +60,17 @@ public class Network {
         return signInId;
     }
     public void logOut() { signInId = 0; }
+
+    public void showMessageList(User sender, User receiver) {
+        System.out.println("---------------------");
+        for (PrivateMessage message : messageList) {
+            if ((message.getSender() == sender) && (message.getReceiver() == receiver))
+                System.out.println(" - " + message.getMessage());
+        }
+        System.out.println("---------------------");
+    }
+
+    public void addPM(User sender, User receiver, String message) {
+        messageList.add(new PrivateMessage(sender, receiver, message));
+    }
 }

@@ -20,8 +20,7 @@ public class ShowFriendListCommand implements Command {
         Scanner scanner = new Scanner(System.in);
         User user = network.findUser(network.getSignInId());
 
-        Command showMyFriendsCommand = new ShowFriendListCommand(receiver);
-        Command myPostsCommand = new MyPostsCommand(receiver);
+        Command showAnothersPageCommand = new ShowAnothersPageCommand(receiver);
         Invoker invoker = new Invoker();
 
         System.out.println("=====================");
@@ -30,12 +29,7 @@ public class ShowFriendListCommand implements Command {
         user.showFriendList();
         System.out.println("---------------------");
 
-        System.out.print("Enter the friend number: ");
-        int i = scanner.nextInt();
-        if (i == network.getSignInId() || network.findUser(i) == null) throw new IllegalArgumentException("");
-        System.out.println("\n\n");
-
-        User friend = network.findUser(i);
-        friend.showPage();
+        invoker.setCommand(showAnothersPageCommand);
+        invoker.run();
     }
 }

@@ -79,6 +79,14 @@ public class User {
         return false;
     }
 
+    public boolean removeFriend(User user) {
+        if (friendList.contains(user)) {
+            friendList.remove(user);
+            return true;
+        }
+        return false;
+    }
+
     public void showPostsList() {
         for (Post post : postList) {
             System.out.println(" - " + post.getMessage());
@@ -95,23 +103,5 @@ public class User {
 
     public void addPost(Post post) {
         postList.add(post);
-    }
-
-    public void showPage() {
-        this.showUserName();
-        System.out.println(" 1) To my page \n 2) Posts \n 3) Add or remove friend \n---------------------\nEnter the command number: ");
-        //System.out.println("3) Messages");
-
-        Scanner scanner = new Scanner(System.in);
-        int i = scanner.nextInt();
-        switch (i) {
-            case 1: break;
-            case 2:
-                this.showUserName();
-                this.showPostsList();
-                break;
-            case 3:
-            default: throw new IllegalArgumentException("");
-        }
     }
 }

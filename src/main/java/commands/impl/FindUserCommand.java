@@ -1,6 +1,7 @@
 package main.java.commands.impl;
 
 import main.java.commands.Command;
+import main.java.commands.Invoker;
 import main.java.commands.Receiver;
 import main.java.model.Network;
 import main.java.model.User;
@@ -18,12 +19,14 @@ public class FindUserCommand implements Command {
         Network network = receiver.getNetwork();
         Scanner scanner = new Scanner(System.in);
 
+        Command showAnothersPageCommand = new ShowAnothersPageCommand(receiver);
+        Invoker invoker = new Invoker();
+
         System.out.println("=====================\nUser List \n=====================");
         network.showUserList();
-        System.out.println("---------------------\nEnter the friend number: ");
-        int i = scanner.nextInt();
-        User user = network.findUser(i);
-        if (i == network.getSignInId() || user == null) throw new IllegalArgumentException("");
-        else user.showPage();
+        System.out.println("---------------------");
+
+        invoker.setCommand(showAnothersPageCommand);
+        invoker.run();
     }
 }
