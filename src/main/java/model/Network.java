@@ -1,5 +1,7 @@
 package main.java.model;
 
+import main.java.services.RatingService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,12 +67,35 @@ public class Network {
         System.out.println("---------------------");
         for (PrivateMessage message : messageList) {
             if ((message.getSender() == sender) && (message.getReceiver() == receiver))
-                System.out.println(" - " + message.getMessage());
+                System.out.println("from: " + sender.getFirstName() + " to " + receiver.getFirstName() + ": "
+                        + message.getText());
         }
         System.out.println("---------------------");
     }
 
-    public void addPM(User sender, User receiver, String message) {
-        messageList.add(new PrivateMessage(sender, receiver, message));
+    public void showMessageList(User sender) {
+        for (PrivateMessage message : messageList) {
+            if ((message.getSender() == sender))
+                System.out.println("from " + sender.getFirstName() + " to "
+                        + message.getReceiver().getFirstName() + " (rating = " + message.getRating() + ") - " + message.getText());
+        }
+        System.out.println("---------------------");
     }
+
+    private void updateMessagesRating(User user) {
+        RatingService ratingService = new RatingService();
+        for(PrivateMessage message : messageList) {
+            if (message.getSender() == user) {
+                ratingService.updateRating(user, message);
+            }
+        }
+    }
+
+    public void addPM(User sender, User receiver, String message) {
+        PrivateMessage privateMessage = new PrivateMessage(sender, receiver, message);
+        messageList.add(privateMessage);
+        sender.addMessage(privateMessage.getText());
+        updateMessagesRating(sender);
+    }
+
 }

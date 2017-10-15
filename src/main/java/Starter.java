@@ -21,10 +21,11 @@ public class Starter {
         Command logOutCommand = new LogOutCommand(receiver);
         Command showFriendListCommand = new ShowFriendListCommand(receiver);
         Command myPostsCommand = new MyPostsCommand(receiver);
+        Command showMessagesCommand = new ShowMessagesCommand(receiver);
         FindUserCommand findUserCommand = new FindUserCommand(receiver);
         Invoker invoker = new Invoker();
 
-        //// Начальные данные
+        //// Тестовые данные
         Network network = receiver.getNetwork();
         network.addUser(new User(1, "VSmirnov", "1","Vadim","Smirnov"));
         network.addUser(new User(2, "IBorovkov", "2","Ivan","Borovkov"));
@@ -41,9 +42,19 @@ public class Starter {
         network.findUser(2).addPost(new Post("My first post"));
         network.findUser(2).addPost(new Post("My second post"));
 
+
         network.addPM(network.findUser(2), network.findUser(1), "Hello 1");
         network.addPM(network.findUser(2), network.findUser(1), "Hello 2");
         network.addPM(network.findUser(2), network.findUser(1), "Hello 3");
+
+        network.addPM(network.findUser(1), network.findUser(3), "Hello, my name is Vadim.");
+        network.addPM(network.findUser(1), network.findUser(3), "What is your name?");
+        network.addPM(network.findUser(1), network.findUser(3), "Nice to meet you");
+
+        network.addPM(network.findUser(1), network.findUser(3), "my my");
+        network.addPM(network.findUser(1), network.findUser(3), "Nice421412 Nice nice nice hello");
+        network.addPM(network.findUser(1), network.findUser(3), "hello hello");
+        network.addPM(network.findUser(1), network.findUser(3), "is");
         ////
 
         int i;
@@ -62,19 +73,23 @@ public class Starter {
                 } else {
                     User user = network.findUser(network.getSignInId());
                     user.showUserName();
-                    System.out.println(" 1) Posts \n 2) Messages \n 3) Friends \n 4) Groups - \n " +
-                            "5) Find user \n 6) Log out \n---------------------\nEnter the command number: ");
+                    System.out.println(" 1) Posts\n 2) Messages\n 3) Friends\n 4) Find user\n 5) Log out\n" +
+                            " 6) Show top10 words\n---------------------\nEnter the command number: ");
                     i = scanner.nextInt();
 
                     switch (i) {
                         case 1: invoker.setCommand(myPostsCommand); invoker.run(); break;
+                        case 2: invoker.setCommand(showMessagesCommand); invoker.run(); break;
                         case 3: invoker.setCommand(showFriendListCommand); invoker.run(); break;
-                        case 5: invoker.setCommand(findUserCommand); invoker.run(); break;
-                        case 6: invoker.setCommand(logOutCommand); invoker.run(); break;
+                        case 4: invoker.setCommand(findUserCommand); invoker.run(); break;
+                        case 5: invoker.setCommand(logOutCommand); invoker.run(); break;
+                        case 6:
+                            network.findUser(1).showTop10Word();
+                            break;
                         default: throw new IllegalArgumentException("");
                     }
                 }
-                System.out.println("\n");
+                System.out.println("");
             }
         }
     }

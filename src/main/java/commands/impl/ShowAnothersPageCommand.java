@@ -29,7 +29,6 @@ public class ShowAnothersPageCommand implements Command {
         User friend = network.findUser(i);
         friend.showUserName();
         System.out.println(" 1) To my page \n 2) Posts \n 3) Messages \n 4) New message \n 5) Add or remove friend \n---------------------\nEnter the command number: ");
-        //System.out.println("3) Messages");
 
         i = scanner.nextInt();
         switch (i) {
@@ -42,6 +41,7 @@ public class ShowAnothersPageCommand implements Command {
                 network.showMessageList(friend, user);
                 break;
             case 4:
+                scanner.nextLine();
                 System.out.print("New message: ");
                 network.addPM(user, friend, scanner.nextLine());
                 break;

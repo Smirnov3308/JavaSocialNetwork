@@ -1,9 +1,9 @@
 package main.java.model;
 
 public abstract class Message {
-    String message;
+    String text;
 
-    public String getMessage() {
-        return message;
+    public String getText() {
+        return text;
     }
 }
