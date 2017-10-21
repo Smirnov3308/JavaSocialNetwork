@@ -76,8 +76,8 @@ public class Network {
     public void showMessageList(User sender) {
         for (PrivateMessage message : messageList) {
             if ((message.getSender() == sender))
-                System.out.println("from " + sender.getFirstName() + " to "
-                        + message.getReceiver().getFirstName() + " (rating = " + message.getRating() + ") - " + message.getText());
+                System.out.println("from " + sender.getFirstName() + " to " + message.getReceiver().getFirstName() +
+                        " (rating = " + message.getRating() + ") - " + message.getText());
         }
         System.out.println("---------------------");
     }

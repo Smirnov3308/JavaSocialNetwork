@@ -42,7 +42,6 @@ public class Starter {
         network.findUser(2).addPost(new Post("My first post"));
         network.findUser(2).addPost(new Post("My second post"));
 
-
         network.addPM(network.findUser(2), network.findUser(1), "Hello 1");
         network.addPM(network.findUser(2), network.findUser(1), "Hello 2");
         network.addPM(network.findUser(2), network.findUser(1), "Hello 3");
