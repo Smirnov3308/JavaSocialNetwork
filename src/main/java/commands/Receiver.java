@@ -1,6 +1,6 @@
-package main.java.commands;
+package commands;
 
-import main.java.model.Network;
+import model.Network;
 
 public class Receiver {
     private final Network network;

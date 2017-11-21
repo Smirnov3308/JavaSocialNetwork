@@ -1,6 +1,6 @@
-package main.java.model;
+package model;
 
-import main.java.services.RatingService;
+import services.RatingService;
 
 import java.util.ArrayList;
 import java.util.List;

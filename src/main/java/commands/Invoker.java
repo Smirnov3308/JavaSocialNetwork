@@ -1,4 +1,4 @@
-package main.java.commands;
+package commands;
 
 public class Invoker {
     private Command command;
@@ -9,6 +9,6 @@ public class Invoker {
 
     public void run() {
         System.out.println("");
-        command.execute();
+        if (command != null) command.execute();
     }
 }

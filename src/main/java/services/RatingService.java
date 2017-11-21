@@ -1,17 +1,18 @@
-package main.java.services;
+package services;
 
-import main.java.model.PrivateMessage;
-import main.java.model.User;
-import main.java.model.WordRating;
+import model.PrivateMessage;
+import model.User;
+import model.WordRating;
 
 import java.util.List;
+import java.util.Locale;
 
 public class RatingService {
     public void updateRating(User user, PrivateMessage message) {
         int messageRating = 0;
         List<WordRating> wordRatingList= user.getWordRatingList();
         String text = message.getText();
-        String[] wordList = text.toLowerCase().replaceAll("[^a-z\\s]", "").trim().split("\\s");
+        String[] wordList = text.toLowerCase(Locale.ENGLISH).replaceAll("[^a-z\\s]", "").trim().split("\\s");
 
         for (String word : wordList) {
             for (WordRating wordRating : wordRatingList) {

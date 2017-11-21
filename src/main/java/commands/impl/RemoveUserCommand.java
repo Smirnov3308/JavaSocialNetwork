@@ -1,8 +1,8 @@
-package main.java.commands.impl;
+package commands.impl;
 
-import main.java.commands.Command;
-import main.java.commands.Receiver;
-import main.java.model.Network;
+import commands.Command;
+import commands.Receiver;
+import model.Network;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class RemoveUserCommand implements Command {
         Network network = receiver.getNetwork();
 
         System.out.println("Delete user");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "UTF-8");
 
         System.out.print("Enter user id: ");
         id = scanner.nextInt();

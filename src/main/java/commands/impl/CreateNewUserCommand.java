@@ -1,9 +1,9 @@
-package main.java.commands.impl;
+package commands.impl;
 
-import main.java.commands.Command;
-import main.java.commands.Receiver;
-import main.java.model.Network;
-import main.java.model.User;
+import commands.Command;
+import commands.Receiver;
+import model.Network;
+import model.User;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class CreateNewUserCommand implements Command {
         Network network = receiver.getNetwork();
 
         System.out.println("Creating new user");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "UTF-8");
         System.out.print("Enter your login: ");
         login = scanner.nextLine();
         if (network.loginFree(login)) {

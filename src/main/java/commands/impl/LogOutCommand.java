@@ -1,8 +1,8 @@
-package main.java.commands.impl;
+package commands.impl;
 
-import main.java.commands.Command;
-import main.java.commands.Receiver;
-import main.java.model.Network;
+import commands.Command;
+import commands.Receiver;
+import model.Network;
 
 public class LogOutCommand implements Command {
     private final Receiver receiver;

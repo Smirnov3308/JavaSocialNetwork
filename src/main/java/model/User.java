@@ -1,4 +1,4 @@
-package main.java.model;
+package model;
 
 import java.util.*;
 
@@ -105,7 +105,7 @@ public class User {
 
 
     public void addMessage(String text) {
-        String[] wordList = text.toLowerCase().replaceAll("[^a-z\\s]", "").trim().split("\\s");
+        String[] wordList = text.toLowerCase(Locale.ENGLISH).replaceAll("[^a-z\\s]", "").trim().split("\\s");
         boolean contains;
         for (String word : wordList) {
             contains = false;

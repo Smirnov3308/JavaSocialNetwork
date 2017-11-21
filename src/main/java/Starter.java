@@ -1,12 +1,10 @@
-package main.java;
-
-import main.java.commands.Command;
-import main.java.commands.Invoker;
-import main.java.commands.Receiver;
-import main.java.commands.impl.*;
-import main.java.model.Network;
-import main.java.model.Post;
-import main.java.model.User;
+import commands.Command;
+import commands.Invoker;
+import commands.Receiver;
+import commands.impl.*;
+import model.Network;
+import model.Post;
+import model.User;
 
 import java.util.Scanner;
 
@@ -15,8 +13,6 @@ public class Starter {
 
         Receiver receiver = new Receiver(new Network());
         Command createNewUserCommand = new CreateNewUserCommand(receiver);
-        Command editUserCommand = new EditUserCommand(receiver);
-        Command removeUserCommand = new RemoveUserCommand(receiver);
         Command loginCommand = new LoginCommand(receiver);
         Command logOutCommand = new LogOutCommand(receiver);
         Command showFriendListCommand = new ShowFriendListCommand(receiver);
@@ -58,7 +54,7 @@ public class Starter {
 
         int i;
 
-        try(Scanner scanner = new Scanner(System.in)) {
+        try(Scanner scanner = new Scanner(System.in, "UTF-8")) {
             while (true) {
                 if (network.getSignInId() == 0) {
                     System.out.println(" 1) Sign in \n 2) Create a New Account \n Enter the command number:");

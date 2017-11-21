@@ -1,10 +1,10 @@
-package main.java.commands.impl;
+package commands.impl;
 
-import main.java.commands.Command;
-import main.java.commands.Receiver;
-import main.java.model.Network;
-import main.java.model.Post;
-import main.java.model.User;
+import commands.Command;
+import commands.Receiver;
+import model.Network;
+import model.Post;
+import model.User;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class MyPostsCommand implements Command {
     @Override
     public void execute() {
         Network network = receiver.getNetwork();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "UTF-8");
         User user = network.findUser(network.getSignInId());
         user.showUserName();
         user.showPostsList();
