@@ -23,7 +23,7 @@ public class RemoveUserCommand implements Command {
         System.out.print("Enter user id: ");
         id = scanner.nextInt();
 
-        if (network.findUser(id) == null) System.out.print("A user with this id does not exist");
+        if (network.getUserDao().findUser(id) == null) System.out.print("A user with this id does not exist");
         else {
             network.deleteUser(id);
             System.out.println("The user has been removed, number of users in the network: " + network.getNumberOfUsers());

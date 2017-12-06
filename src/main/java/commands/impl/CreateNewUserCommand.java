@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class CreateNewUserCommand implements Command {
     private final Receiver receiver;
-
     public CreateNewUserCommand(Receiver receiver) {
         this.receiver = receiver;
     }
@@ -37,7 +36,7 @@ public class CreateNewUserCommand implements Command {
 
             id = network.getNumberOfUsers() + 1;
             User user = new User(id, login, password, firstName, lastName);
-            network.addUser(user);
+            network.getUserDao().addUser(user);
             System.out.println("User " + user.getFirstName() + " " + user.getLastName() + " is added to the network, number of users in the network: " + network.getNumberOfUsers());
         } else {
             System.out.print("This login is already taken");

@@ -1,11 +1,14 @@
 package model;
 
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 import services.RatingService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
+    private final UserDao userDao = new UserDaoImpl();
     private final List<User> userList = new ArrayList<>();
     private final List<PrivateMessage> messageList = new ArrayList<>();
     private int signInId = 1;
@@ -44,14 +47,6 @@ public class Network {
             }
         }
         return false;
-    }
-
-    public void showUserList() {
-        for (User user : userList) {
-            if(user.getId() != this.signInId)
-                System.out.println(user.getId() + ") " + user.getFirstName() + " " + user.getLastName());
-        }
-        if (userList.isEmpty()) System.out.println("Users not found");
     }
 
     public int getNumberOfUsers() {
@@ -98,4 +93,7 @@ public class Network {
         updateMessagesRating(sender);
     }
 
+    public UserDao getUserDao() {
+        return userDao;
+    }
 }

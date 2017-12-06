@@ -15,7 +15,7 @@ public class ShowFriendListCommand implements Command {
     @Override
     public void execute() {
         Network network = receiver.getNetwork();
-        User user = network.findUser(network.getSignInId());
+        User user = network.getUserDao().findUser(network.getSignInId());
 
         Command showAnothersPageCommand = new ShowAnothersPageCommand(receiver);
         Invoker invoker = new Invoker();

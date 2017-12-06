@@ -18,7 +18,7 @@ public class MyPostsCommand implements Command {
     public void execute() {
         Network network = receiver.getNetwork();
         Scanner scanner = new Scanner(System.in, "UTF-8");
-        User user = network.findUser(network.getSignInId());
+        User user = network.getUserDao().findUser(network.getSignInId());
         user.showUserName();
         user.showPostsList();
         System.out.print("New post: ");

@@ -14,7 +14,7 @@ public class ShowMessagesCommand implements Command {
     @Override
     public void execute() {
         Network network = receiver.getNetwork();
-        User user = network.findUser(network.getSignInId());
+        User user = network.getUserDao().findUser(network.getSignInId());
 
         System.out.println("=====================");
         System.out.println("My private messages");
