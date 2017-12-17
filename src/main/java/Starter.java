@@ -15,7 +15,7 @@ public class Starter {
         Command logOutCommand = new LogOutCommand(receiver);
         Command showFriendListCommand = new ShowFriendListCommand(receiver);
         Command myPostsCommand = new MyPostsCommand(receiver);
-        Command showMessagesCommand = new ShowMessagesCommand(receiver);
+        Command showMessagesCommand = new ShowPMCommand(receiver);
         Command findUserCommand = new FindUserCommand(receiver);
         Command editUserCommand = new EditUserCommand(receiver);
 
@@ -23,6 +23,10 @@ public class Starter {
 
         //// Тестовые данные
         Network network = receiver.getNetwork();
+
+
+        System.out.println("Количество людей в базе данных: " + network.getUserDao().getCount());
+
         /*
         network.getUserDao().addUser(new User(1, "VSmirnov", "1","Vadim","Smirnov"));
         network.getUserDao().addUser(new User(2, "IBorovkov", "2","Ivan","Borovkov"));

@@ -34,10 +34,10 @@ public class CreateNewUserCommand implements Command {
             System.out.print("Enter your last name: ");
             lastName = scanner.nextLine();
 
-            id = network.getNumberOfUsers() + 1;
+            id = network.getUserDao().getCount() + 1;
             User user = new User(id, login, password, firstName, lastName);
             network.getUserDao().addUser(user);
-            System.out.println("User " + user.getFirstName() + " " + user.getLastName() + " is added to the network, number of users in the network: " + network.getNumberOfUsers());
+            System.out.println("User " + user.getFirstName() + " " + user.getLastName() + " is added to the network, number of users in the network: " + network.getUserDao().getCount());
         } else {
             System.out.print("This login is already taken");
         }

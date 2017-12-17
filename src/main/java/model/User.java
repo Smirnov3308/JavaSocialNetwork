@@ -13,7 +13,6 @@ public class User {
     private final List<Post> postList = new ArrayList<>();
     private final List<WordRating> wordRatingList = new ArrayList<>();
 
-
     public User(int id, String login, String password, String firstName, String lastName) {
         this.id = id;
         this.login = login;

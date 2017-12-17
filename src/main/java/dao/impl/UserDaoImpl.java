@@ -67,8 +67,22 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
+    public int getCount() {
+        String sql = "SELECT COUNT(*) FROM user";
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("COUNT(*)");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public User findUser(int id) {
-        String sql = "SELECT id, firstName, lastName, login, password FROM user WHERE id = ?";
+        String sql = "SELECT * FROM user WHERE id = ?";
         try {
             Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);

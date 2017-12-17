@@ -1,23 +1,15 @@
 package model;
 
 public class PrivateMessage extends Message {
-    private User sender;
-    private User receiver;
+    private int senderID;
+    private int receiverID;
     private Integer rating;
 
-    public PrivateMessage(User sender, User receiver, String message) {
-        this.sender = sender;
-        this.receiver = receiver;
-        this.text = message;
+    public PrivateMessage(int senderID, int receiverID, String text) {
+        this.senderID = senderID;
+        this.receiverID = receiverID;
+        this.text = text;
         this.rating = 0;
-    }
-
-    public User getSender() {
-        return sender;
-    }
-
-    public User getReceiver() {
-        return receiver;
     }
 
     public void setRating(Integer rating) {
@@ -26,5 +18,21 @@ public class PrivateMessage extends Message {
 
     public Integer getRating() {
         return rating;
+    }
+
+    public Integer getSenderID() {
+        return senderID;
+    }
+
+    public void setSenderID(Integer senderID) {
+        this.senderID = senderID;
+    }
+
+    public Integer getReceiverID() {
+        return receiverID;
+    }
+
+    public void setReceiverID(Integer receiverID) {
+        this.receiverID = receiverID;
     }
 }
