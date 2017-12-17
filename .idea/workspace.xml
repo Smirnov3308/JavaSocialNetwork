@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eb0a948-d34a-46f9-af97-295356de6fd7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/NetworkDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/PrivateMessageDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/NetworkDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/PrivateMessageDaoImpl.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/commands/impl/RemoveUserCommand.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_196.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_195.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/commands/impl/ShowMessagesCommand.java" afterPath="$PROJECT_DIR$/src/main/java/commands/impl/ShowPMCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JavaSocialNetwork.iml" afterPath="$PROJECT_DIR$/JavaSocialNetwork.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Starter.java" afterPath="$PROJECT_DIR$/src/main/java/Starter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/commands/impl/CreateNewUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/commands/impl/CreateNewUserCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/commands/impl/ShowAnothersPageCommand.java" afterPath="$PROJECT_DIR$/src/main/java/commands/impl/ShowAnothersPageCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Network.java" afterPath="$PROJECT_DIR$/src/main/java/model/Network.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/PrivateMessage.java" afterPath="$PROJECT_DIR$/src/main/java/model/PrivateMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Network.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
-              <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -644,7 +626,7 @@
       <workItem from="1513431431078" duration="2389000" />
       <workItem from="1513449557601" duration="3765000" />
       <workItem from="1513509837212" duration="9148000" />
-      <workItem from="1513524252308" duration="5957000" />
+      <workItem from="1513524252308" duration="5997000" />
     </task>
     <task id="LOCAL-00001" summary="FindBugs + CheckStyle">
       <created>1511281660121</created>
@@ -674,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512524517992</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="JDBC, Message DAO">
+      <created>1513530986416</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1513530986416</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -710,7 +699,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132982000" />
+    <option name="totallyTimeSpent" value="133022000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -757,7 +746,8 @@
     </ignored-roots>
     <MESSAGE value="FindBugs + CheckStyle" />
     <MESSAGE value="JDBC, User DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="JDBC, User DAO" />
+    <MESSAGE value="JDBC, Message DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="JDBC, Message DAO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1108,7 +1098,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Network.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
-          <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
