@@ -4,6 +4,7 @@ import commands.Receiver;
 import commands.impl.*;
 import model.Network;
 import model.User;
+import services.RatingService;
 
 import java.util.Scanner;
 
@@ -88,7 +89,7 @@ public class Starter {
                         case 4: invoker.setCommand(findUserCommand); invoker.run(); break;
                         case 5: invoker.setCommand(logOutCommand); invoker.run(); break;
                         case 6:
-                            network.getUserDao().findUser(1).showTop10Word();
+                            RatingService.showTop10(user, network.getPrivateMessageDao());
                             break;
                         case 7: invoker.setCommand(editUserCommand); invoker.run(); break;
                         default: throw new IllegalArgumentException("");

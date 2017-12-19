@@ -3,6 +3,7 @@ package commands.impl;
 import commands.Command;
 import commands.Receiver;
 import model.Network;
+import model.Post;
 import model.PrivateMessage;
 import model.User;
 
@@ -37,7 +38,12 @@ public class ShowAnothersPageCommand implements Command {
             case 1: break;
             case 2:
                 friend.showUserName();
-                friend.showPostsList();
+                List<Post> postList = network.getPostDao().getMessages(friend);
+                for (Post post : postList) {
+                    System.out.println(" - " + post.getText());
+                }
+                if (postList.size() == 0) System.out.println("Posts not found");
+                System.out.println("---------------------");
                 break;
             case 3:
                 List<PrivateMessage> messageList = network.getPrivateMessageDao().getMessages(friend, user);
@@ -54,7 +60,7 @@ public class ShowAnothersPageCommand implements Command {
             case 4:
                 scanner.nextLine();
                 System.out.print("New message: ");
-                network.getPrivateMessageDao().addPrivateMessage(user, friend, scanner.nextLine());
+                network.addPrivateMessage(user, friend, scanner.nextLine());
                 break;
             case 5:
                 if(user.addFriend(friend)) System.out.println("User successfully added");

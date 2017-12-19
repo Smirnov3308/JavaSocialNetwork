@@ -1,7 +1,9 @@
 package model;
 
+import dao.PostDao;
 import dao.PrivateMessageDao;
 import dao.UserDao;
+import dao.impl.PostDaoImpl;
 import dao.impl.PrivateMessageDaoImpl;
 import dao.impl.UserDaoImpl;
 
@@ -10,7 +12,8 @@ import java.util.List;
 public class Network {
     private final UserDao userDao = new UserDaoImpl();
     private final PrivateMessageDao privateMessageDao = new PrivateMessageDaoImpl();
-    private int signInId = 0;
+    private final PostDao postDao = new PostDaoImpl();
+    private int signInId = 1;
 
     public boolean loginFree(String login) {
         List<User> userList = userDao.getUserList();
@@ -45,5 +48,13 @@ public class Network {
 
     public PrivateMessageDao getPrivateMessageDao() {
         return privateMessageDao;
+    }
+
+    public void addPrivateMessage(User user, User friend, String s) {
+        privateMessageDao.addPrivateMessage(user, friend, s);
+    }
+
+    public PostDao getPostDao() {
+        return postDao;
     }
 }

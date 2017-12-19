@@ -21,8 +21,7 @@ public class PrivateMessageDaoImpl extends BaseDao implements PrivateMessageDao 
                     "id INT not null AUTO_INCREMENT," +
                     "senderID INT," +
                     "receiverID INT," +
-                    "text VARCHAR(255)," +
-                    "rating INT)";
+                    "text VARCHAR(255))";
             statement.execute(sql);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -48,7 +47,7 @@ public class PrivateMessageDaoImpl extends BaseDao implements PrivateMessageDao 
 
     @Override
     public List<PrivateMessage> getMessages(User sender) {
-        String sql = "SELECT senderID, receiverID, text, rating FROM privateMessage WHERE senderID = ?";
+        String sql = "SELECT senderID, receiverID, text FROM privateMessage WHERE senderID = ?";
         try {
             Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -60,7 +59,6 @@ public class PrivateMessageDaoImpl extends BaseDao implements PrivateMessageDao 
                 int senderID = resultSet.getInt("senderID");
                 int receiverID = resultSet.getInt("receiverID");
                 String text = resultSet.getString("text");
-                int ratng = resultSet.getInt("rating");
 
                 PrivateMessage message = new PrivateMessage(senderID, receiverID, text);
                 messages.add(message);
@@ -74,7 +72,7 @@ public class PrivateMessageDaoImpl extends BaseDao implements PrivateMessageDao 
 
     @Override
     public List<PrivateMessage> getMessages(User sender, User receiver) {
-        String sql = "SELECT senderID, receiverID, text, rating FROM privateMessage WHERE senderID = ? AND receiverID = ?";
+        String sql = "SELECT senderID, receiverID, text FROM privateMessage WHERE senderID = ? AND receiverID = ?";
         try {
             Connection connection = getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -87,7 +85,6 @@ public class PrivateMessageDaoImpl extends BaseDao implements PrivateMessageDao 
                 int senderID = resultSet.getInt("senderID");
                 int receiverID = resultSet.getInt("receiverID");
                 String text = resultSet.getString("text");
-                int ratng = resultSet.getInt("rating");
 
                 PrivateMessage message = new PrivateMessage(senderID, receiverID, text);
                 messages.add(message);

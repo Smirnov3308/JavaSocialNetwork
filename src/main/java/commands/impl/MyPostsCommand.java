@@ -6,6 +6,7 @@ import model.Network;
 import model.Post;
 import model.User;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class MyPostsCommand implements Command {
@@ -20,8 +21,14 @@ public class MyPostsCommand implements Command {
         Scanner scanner = new Scanner(System.in, "UTF-8");
         User user = network.getUserDao().findUser(network.getSignInId());
         user.showUserName();
-        user.showPostsList();
+        List<Post> postList = network.getPostDao().getMessages(user);
+        for (Post post : postList) {
+            System.out.println(" - " + post.getText());
+        }
+        if (postList.size() == 0) System.out.println("Posts not found");
+        System.out.println("---------------------");
+
         System.out.print("New post: ");
-        user.addPost(new Post(scanner.nextLine()));
+        network.getPostDao().addPost(user, scanner.nextLine());
     }
 }
