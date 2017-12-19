@@ -17,6 +17,7 @@ public abstract class BaseDao {
         try {
             Class.forName(DRIVER_CLASS_NAME);
 
+
             Connection connection = DriverManager.getConnection("jdbc:h2:~/DBtest",
                     "Vadim", "1230");
             connection.setAutoCommit(false);
